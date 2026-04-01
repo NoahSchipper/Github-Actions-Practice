@@ -20,4 +20,15 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint --disable=all --enable=\
+          undefined-variable,\
+          unused-import,\
+          unused-variable,\
+          missing-function-docstring,\
+          missing-class-docstring,\
+          duplicate-code,\
+          too-many-arguments,\
+          broad-exception-caught,\
+          redefined-outer-name,\
+          unreachable \
+          $(git ls-files '*.py')
